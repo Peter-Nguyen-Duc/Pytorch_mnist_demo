@@ -251,6 +251,9 @@ def main():
     input_size = 28 * 28
     hidden_layer_size = 512
     num_classes = 10
+    batch_size = 8192
+    learning_rate = 1e-4
+    epochs = 100
 
 
     model = MnistModel(input_size=input_size, num_classes=num_classes, hidden_layer_size=hidden_layer_size).to(device)
@@ -264,7 +267,7 @@ def main():
 
     # To hit 
 
-    hist_list = fit(epochs=300, lr=5e-4, model=model,X=X_train, y=y_train, X_val=X_test, y_val=y_test, batch_size=8192, opt_func=torch.optim.Adam)
+    hist_list = fit(epochs=epochs, lr=learning_rate, model=model,X=X_train, y=y_train, X_val=X_test, y_val=y_test, batch_size=batch_size, opt_func=torch.optim.Adam)
 
 
 
